@@ -21,7 +21,7 @@ class App extends Component {
                 <div className="App">
                     <div className="container">
                         <Header />
-                        <Route exact path="/pokemons">
+                        <Route exact path={["/", "/pokemons"]}>
                             <h1>All Pokemons</h1>
                             <PokemonList pokemonCards={this.state.pokemonCards} />
                         </Route>
