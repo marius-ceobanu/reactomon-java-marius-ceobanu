@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from "./components/layout/Header";
 import PokemonList from "./components/PokemonList";
+import PokemonDetails from "./components/PokemonDetails";
 import TypeList from "./components/TypeList";
 import './App.css';
 
@@ -30,6 +31,9 @@ class App extends Component {
                         </Route>
                         <Route exact path="/types">
                             <TypeList types={this.state.types} />
+                        </Route>
+                        <Route path="/pokemon/:id" >
+                            <PokemonDetails />
                         </Route>
                     </div>
                 </div>
