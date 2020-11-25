@@ -7,7 +7,7 @@ function PokemonCard(props) {
         <Card bg="danger" border="success" style={cardStyle} className="mb-5">
             <Card.Img variant="top" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.index}.png`} />
             <Card.Body>
-                <Card.Title className="text-center" style={{fontFamily: 'Impact, Charcoal, sans-serif'}}>{props.pokeCard.name}</Card.Title>
+                <Card.Title className="text-center">{props.pokeCard.name}</Card.Title>
             </Card.Body>
         </Card>
     );
@@ -17,6 +17,7 @@ const cardStyle = {
     width: '13rem',
     borderRadius: '15px',
     boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+    fontFamily: 'Impact, Charcoal, sans-serif'
 }
 
 export default PokemonCard;
