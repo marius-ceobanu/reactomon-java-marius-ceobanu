@@ -3,16 +3,20 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from "./components/layout/Header";
 import PokemonList from "./components/PokemonList";
+import TypeList from "./components/TypeList";
 import './App.css';
 
 class App extends Component {
     state = {
-        pokemonCards: []
+        pokemonCards: [],
+        types: []
     }
 
     componentDidMount() {
         axios.get('https://pokeapi.co/api/v2/pokemon')
             .then(res => this.setState({ pokemonCards: res.data.results }));
+        axios.get('https://pokeapi.co/api/v2/type')
+            .then(res => this.setState({ types: res.data.results }))
     }
 
     render() {
@@ -25,7 +29,7 @@ class App extends Component {
                             <PokemonList pokemonCards={this.state.pokemonCards} />
                         </Route>
                         <Route exact path="/types">
-                            <h1>All Types</h1>
+                            <TypeList types={this.state.types} />
                         </Route>
                     </div>
                 </div>
