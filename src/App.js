@@ -23,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="App">
+                <div className="App" style={pageStyle}>
                     <div className="container">
                         <Header />
                         <Route exact path={["/", "/pokemons"]}>
@@ -38,8 +38,10 @@ class App extends Component {
             </Router>
         );
     }
+}
 
-
+const pageStyle = {
+    backgroundColor: '#F0F8FF'
 }
 
 export default App;
