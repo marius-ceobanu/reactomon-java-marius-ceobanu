@@ -32,7 +32,7 @@ class App extends Component {
                         <Route exact path="/types">
                             <TypeList types={this.state.types} />
                         </Route>
-                        <Route path="/pokemon/:id" component={PokemonDetails}/>
+                        <Route path="/pokemon/:id" component={PokemonDetails} />
                     </div>
                 </div>
             </Router>
@@ -41,7 +41,8 @@ class App extends Component {
 }
 
 const pageStyle = {
-    backgroundColor: '#F0F8FF'
+    backgroundColor: '#2F4F4F',
+    paddingBottom: '10px'
 }
 
 export default App;

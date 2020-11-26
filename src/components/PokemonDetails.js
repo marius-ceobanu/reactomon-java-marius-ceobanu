@@ -56,9 +56,8 @@ class PokemonDetails extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div style={{ backgroundColor: this.state.typeColors[this.state.type], width: '900px', marginLeft: '110px', paddingBottom: '20px', marginBottom: '10px' }}>
+            <div style={{ backgroundColor: this.state.typeColors[this.state.type], width: '900px', marginLeft: '110px', paddingBottom: '20px', marginBottom: '10px', marginTop: '10px', borderRadius: '15px' }}>
                 <h3 style={{ textAlign: 'right', padding: '30px' }}>#{this.state.pokemon.order}</h3>
                 <div style={{ display: 'flex', paddingLeft: "150px" }}>
                     <div style={{ width: '200px', height: '120px', display: 'flex' }}>
@@ -108,7 +107,7 @@ class PokemonDetails extends Component {
                     <Card.Header>Stats</Card.Header>
                     <ListGroup variant="flush">
                             {this.state.stats.map(stat => (
-                                <div key={stat.stat.name}>
+                                <div key={stat.stat.name} className="pr-2 pl-2 pb-1">
                                     <div className="font-weight-light mt-2" style={{ textAlign: 'center' }}>{this.titleCase(stat.stat.name)}</div>
                                     <ProgressBar variant="info" animated now={stat.base_stat} label={stat.base_stat}/>
                                 </div>
