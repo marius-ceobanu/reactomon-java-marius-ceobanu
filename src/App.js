@@ -32,9 +32,7 @@ class App extends Component {
                         <Route exact path="/types">
                             <TypeList types={this.state.types} />
                         </Route>
-                        <Route path="/pokemon/:id" >
-                            <PokemonDetails />
-                        </Route>
+                        <Route path="/pokemon/:id" component={PokemonDetails}/>
                     </div>
                 </div>
             </Router>
