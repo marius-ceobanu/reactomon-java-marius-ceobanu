@@ -57,7 +57,10 @@ class PokemonDetails extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: this.state.typeColors[this.state.type], width: '900px', marginLeft: '110px', paddingBottom: '20px', marginBottom: '10px', marginTop: '10px', borderRadius: '15px' }}>
+            <div style={{ backgroundColor: this.state.typeColors[this.state.type],
+                width: '900px', marginLeft: '110px',
+                paddingBottom: '20px', marginBottom: '10px',
+                marginTop: '10px', borderRadius: '15px' }}>
                 <h3 style={{ textAlign: 'right', padding: '30px' }}>#{this.state.pokemon.order}</h3>
                 <div style={{ display: 'flex', paddingLeft: "150px" }}>
                     <div style={{ width: '200px', height: '120px', display: 'flex' }}>
