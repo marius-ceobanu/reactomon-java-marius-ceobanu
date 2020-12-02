@@ -11,11 +11,12 @@ function App() {
 
     const [pokemonCards, setPokemonCards] = useState([]);
     const [types, setTypes] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        console.log("didMount");
+        setIsLoading(true);
         axios.get('https://pokeapi.co/api/v2/pokemon')
-                .then(res => setPokemonCards(res.data.results ));
+                .then(res => { setPokemonCards(res.data.results ); setIsLoading(false) });
         axios.get('https://pokeapi.co/api/v2/type')
             .then(res => setTypes(res.data.results ));
     }, []);
@@ -26,7 +27,7 @@ function App() {
                 <div className="container">
                     <Header />
                     <Route exact path={["/", "/pokemons"]}>
-                        <PokemonList pokemonCards={pokemonCards} />
+                        <PokemonList pokemonCards={pokemonCards} isLoading={isLoading}/>
                     </Route>
                     <Route exact path="/types">
                         <TypeList types={types} />
