@@ -14,7 +14,7 @@ function PokemonList(props) {
             </CardColumns>
         );
     } else {
-        return <h3 style={{ textAlign: 'center', marginBottom: '400px' }}>Loading...</h3>
+        return <h3 style={{ textAlign: 'center', marginBottom: '400px' }}>Loading...</h3>;
     }
 }
 
