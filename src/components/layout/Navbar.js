@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from 'react-bootstrap/Nav';
+import { Nav, Badge } from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
+import { PokeBallContext } from "../PokeBallContext";
+
 
 function Navbar() {
+    // eslint-disable-next-line no-unused-vars
+    const [pokeBall, catchPokemon] = useContext(PokeBallContext);
     const [theme, setTheme] = useContext(ThemeContext);
 
-    const checked = theme==='#F8F8FF' ? false : true;
+    const checked = theme !== '#F8F8FF';
 
     const toggleTheme = () => {
         setTheme(theme==='#F8F8FF'?'#2F4F4F':'#F8F8FF');
-        console.log("toggle: "+localStorage.getItem('theme'));
-        console.log("theme: "+theme);
     };
 
     return (
@@ -20,11 +22,17 @@ function Navbar() {
             <Nav.Item className="pr-5">
                 <Nav.Link as={Link} to="/pokemons" eventKey="/pokemons">Pokemons</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className="pr-0">
                 <Nav.Link as={Link} to="/types" eventKey="/types">Types</Nav.Link>
             </Nav.Item>
-            <div className="custom-control custom-switch" style={{ marginLeft: '250px', fontSize: 'large' }}>
-                <input type="checkbox" className="custom-control-input" id="darkSwitch" onChange={e => toggleTheme()} checked={checked}></input>
+            <Nav.Item className="pl-5">
+                <Nav.Link as={Link} to="/my_pokemons" eventKey="/my_pokemons">
+                    <img alt="catch pokemons" src="https://img.icons8.com/color/36/000000/pokebag.png"/>
+                    <Badge>{pokeBall.length}</Badge>
+                </Nav.Link>
+            </Nav.Item>
+            <div className="custom-control custom-switch" style={{ marginLeft: '160px', fontSize: 'large' }}>
+                <input type="checkbox" className="custom-control-input" id="darkSwitch" onChange={e => toggleTheme()} checked={checked}/>
                 <label className="custom-control-label" htmlFor="darkSwitch">🌓</label>
             </div>
         </Nav>
@@ -33,7 +41,7 @@ function Navbar() {
 
 const navStyle = {
     fontFamily: 'Impact, Charcoal, sans-serif',
-    marginLeft: '430px'
+    marginLeft: '400px'
 }
 
 export default Navbar;

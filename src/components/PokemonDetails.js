@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Badge, Card, ListGroup, ProgressBar } from 'react-bootstrap';
+import { PokeBallContext } from "./PokeBallContext";
 
 function PokemonDetails(props) {
     const id = props.match.params.id;
@@ -35,6 +36,8 @@ function PokemonDetails(props) {
     const [stats, setStats] = useState([]);
     const [sprites, setSprites] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    const [pokeBall, catchPokemon] = useContext(PokeBallContext);
+    const inBall = pokeBall.indexOf(`https://pokeapi.co/api/v2/pokemon/${props.match.params.id}/`)!==-1;
 
     useEffect(() => {
         setIsLoading(true);
@@ -50,6 +53,10 @@ function PokemonDetails(props) {
                 setIsLoading(false);
                 });
     }, [id]);
+
+    const catchIt = (pokemon) => {
+        catchPokemon([...pokeBall, pokemon]);
+    };
 
     const titleCase = (str) => {
         str = str.toLowerCase().split(' ');
@@ -80,8 +87,12 @@ function PokemonDetails(props) {
                 <div style={{ textAlign: 'center' }}>
                     <Badge pill variant="light">{type.toUpperCase()}</Badge>
                 </div>
+                {!inBall
+                    ? <img style={{ paddingLeft: '700px' }} alt="catch it" src="https://img.icons8.com/plasticine/100/000000/open-pokeball.png" onClick={e => catchIt(`https://pokeapi.co/api/v2/pokemon/${id}/`)}/>
+                    : <img style={{ paddingLeft: '700px' }} alt="myOwn" src="https://img.icons8.com/color/100/000000/star-pokemon.png"/>
+                }
                 <div style={{ display: 'flex' }}>
-                    <Card style={{ width: '22rem' }} className="mx-auto mt-5 mb-5">
+                    <Card style={{ width: '22rem' }} className="mx-auto mt-2 mb-5">
                         <Card.Header>Info</Card.Header>
                         <ListGroup variant="flush">
                             <ListGroup.Item style={{ display: 'flex' }}><div className="font-weight-light">Species:</div>
@@ -110,7 +121,7 @@ function PokemonDetails(props) {
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>
-                    <Card style={{ width: '22rem' }} className="mx-auto mt-5 mb-5">
+                    <Card style={{ width: '22rem' }} className="mx-auto mt-2 mb-5">
                         <Card.Header>Stats</Card.Header>
                         <ListGroup variant="flush">
                             {stats.map(stat => (

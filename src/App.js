@@ -2,11 +2,14 @@ import React from 'react';
 import Main from './components/Main';
 import './App.css';
 import { ThemeProvider } from './components/ThemeContext';
+import { PokeBallProvider } from "./components/PokeBallContext";
 
 function App() {
     return (
         <ThemeProvider>
-            <Main />
+            <PokeBallProvider>
+                <Main />
+            </PokeBallProvider>
         </ThemeProvider>
     );
 }
