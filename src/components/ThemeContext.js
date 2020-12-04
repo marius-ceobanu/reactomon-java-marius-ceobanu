@@ -3,7 +3,7 @@ import React, { useState, useEffect, createContext } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = (props) => {
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || '#F8F8FF');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || '#E0FFFF');
 
     useEffect(() => {
         localStorage.setItem('theme', theme);

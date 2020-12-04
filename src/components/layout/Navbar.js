@@ -11,10 +11,10 @@ function Navbar() {
     const [pokeBall, catchPokemon] = useContext(PokeBallContext);
     const [theme, setTheme] = useContext(ThemeContext);
 
-    const checked = theme !== '#F8F8FF';
+    const checked = theme !== '#E0FFFF';
 
     const toggleTheme = () => {
-        setTheme(theme==='#F8F8FF'?'#2F4F4F':'#F8F8FF');
+        setTheme(theme==='#E0FFFF'?'#2F4F4F':'#E0FFFF');
     };
 
     return (
