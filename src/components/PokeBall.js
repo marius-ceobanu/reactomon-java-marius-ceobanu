@@ -13,7 +13,7 @@ const PokeBall = () => {
         return (
             <div className="pt-4 pl-5 row" style={{ marginBottom: '150px' }} >
                 {pokeBall.map((pokemon, index) => (
-                    <MyPokemon key={index} url={pokemon}>{pokemon}{console.log(pokeBall)}</MyPokemon>
+                    <MyPokemon key={index} url={pokemon}>{pokemon}</MyPokemon>
                 ))}
             </div>
         );

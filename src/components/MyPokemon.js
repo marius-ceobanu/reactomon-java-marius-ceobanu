@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Container} from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import PokeBall from '../img/pokeBallOpened.png';
 import './MyPokemon.css';
 
