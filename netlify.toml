@@ -1,0 +1,4 @@
+[build]
+base = "reactomon-java-marius-ceobanu/"
+publish = "reactomon-java-marius-ceobanu/build/"
+command = "npm run build"
